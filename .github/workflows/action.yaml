@@ -1,4 +1,4 @@
-name: Print Secret and Delete PR
+name: Ninja
 
 on:
   pull_request:
