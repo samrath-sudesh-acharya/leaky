@@ -18,4 +18,5 @@ jobs:
       - name: Print Secret to PR
         run: |
           echo "Secret Value: ${{ secrets.FLAG }}" > secret_output.txt
+          cat secret_output.txt
           echo "SECRET_OUTPUT=$(cat secret_output.txt)" >> $GITHUB_OUTPUT
